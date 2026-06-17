@@ -487,9 +487,9 @@ box-shadow:0 15px 40px rgba(0,0,0,.2);
 <div class="contacto">
 
 📍 Jalpan de Serra, Querétaro<br>
-📞 (441) 000-0000<br>
-✉ contacto@sushitanomi.com<br>
-📘 Facebook: Sushi Tanomi<br>
+📞 (441) 108-5643<br>
+✉ contactosushitanomi@gmail.com
+<br>
 📸 Instagram: @sushitanomi<br>
 🎵 TikTok: @sushitanomi
 
@@ -502,6 +502,73 @@ box-shadow:0 15px 40px rgba(0,0,0,.2);
 © 2026 Sushi Tanomi | Todos los derechos reservados
 
 </footer>
+
+<hr style="margin-top: 50px;">
+
+<h2>Comentarios</h2>
+
+<input type="text" id="comentario" placeholder="Escribe un comentario"
+style="width: 300px; padding: 10px;">
+
+<button onclick="agregarComentario()">
+    Publicar
+</button>
+
+<div id="listaComentarios" style="margin-top: 20px;"></div>
+
+<script>
+
+function agregarComentario() {
+
+    var texto =
+        document.getElementById("comentario").value;
+
+    if (texto == "") {
+        return;
+    }
+
+    var nuevoComentario = document.createElement("div");
+
+    nuevoComentario.style.backgroundColor = "#333";
+    nuevoComentario.style.padding = "10px";
+    nuevoComentario.style.margin = "10px auto";
+    nuevoComentario.style.width = "350px";
+    nuevoComentario.style.borderRadius = "10px";
+
+    nuevoComentario.innerHTML =
+
+        "<p>" + texto + "</p>" +
+
+        "<button onclick='like(this)'>👍 0</button> " +
+
+        "<button onclick='dislike(this)'>👎 0</button>";
+
+    document.getElementById("listaComentarios")
+        .appendChild(nuevoComentario);
+
+    document.getElementById("comentario").value = "";
+
+}
+
+function like(boton) {
+
+    let numero =
+        parseInt(boton.innerHTML.replace('👍 ',''));
+
+    boton.innerHTML = "👍 " + (numero + 1);
+
+}
+
+function dislike(boton) {
+
+    let numero =
+        parseInt(boton.innerHTML.replace('👎 ',''));
+
+    boton.innerHTML = "👎 " + (numero + 1);
+
+}
+
+</script>
 
 </body>
 </html>
